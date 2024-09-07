@@ -106,3 +106,14 @@ class DBConnectionUtilTest {
 }
 ```
 <br>
+<br>
+
+
+### 2. 테스트 코드 작성 시 @Autowird로는 필드 주입이 되는데 @RequiredArgumentsConstructor를 사용해서 필드 주입 불가<br>
+
+##### 사용할 수 없었던 이유 ❓<br>
+- 테스트 코드가 아닌 곳에서는 스프링 컨테이너를 이용하여 빈을 가져와 자동 주입을 하여 @RequiredArgsConstructor도 되고 @Autowired도 사용이 가능하다.
+- 그러나 테스트 코드에서는 JUnit5 프레임워크를 사용하여 스프링 컨테이너가 아닌 JUnit5가 스스로 지원을 하게 됩니다. 그래서 의존성 주입의 타입이 정해져 있어 @Autowired만 사용이 가능하다.
+
+##### 테스트 코드에서 사용하는 메서드 자세히 알아보기 ✍🏻
+👉 https://wonyong-jang.github.io/spring/2020/06/09/Spring-Test-Code-With-Junit.html
